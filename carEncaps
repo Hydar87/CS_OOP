@@ -1,0 +1,87 @@
+//HAIDAR NYAWA CT 101/G/20354/23
+//This is an encapsulation program that involves car system
+
+import java.util.Scanner; 
+
+//  demonstrating encapsulation using car class
+
+class CarEncaps{
+//initiating licenseplate varriable
+  private String licensePlate; 
+  private boolean isRented; 
+
+  // Constructor  initializing  Car object
+  public Car(String licensePlate, boolean isRented) {
+    this.licensePlate = licensePlate;
+    this.isRented = isRented;
+  }
+
+
+  public void rentCar() {
+    if (!isRented) { 
+      isRented = true; 
+      System.out.println("Car with license plate " + licensePlate + " rented successfully");
+    } else {
+      System.out.println("Car with license plate " + licensePlate + " is already rented");
+    }
+  }
+
+  // Method to return the car
+  public void returnCar() {
+    if (isRented) { 
+      
+      isRented = false; 
+      
+      System.out.println("Car with license plate " + licensePlate + " returned with success");
+    } else {
+      System.out.println("Car with license plate " + licensePlate + " is  unrented");
+    }
+  }
+
+  // method  checking if car is rented
+  public boolean getIsRented() {
+    return isRented; 
+  }
+}
+
+// Main class 
+
+public class CarEncapsulation {
+
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+
+    // Prompt user to enter license plate and rental status
+    
+    System.out.println("Enter  license plate of a car: "); 
+    
+    String licensePlate = sc.nextLine(); 
+
+  
+    System.out.println("Is a car rented? (true/false): "); 
+    
+    boolean isRented = sc.nextBoolean(); 
+
+    
+    Car Audi = new Car(licensePlate, isRented); 
+    
+    Audi.rentCar(); 
+    
+    Audi.returnCar(); 
+
+    // Checking if car is rented
+    
+    boolean Rented = Audi.getIsRented();
+    if (Rented) { 
+      System.out.println("Car is rented");
+    } 
+    else 
+    { 
+      System.out.println("Car is not rented");
+    }
+
+    //closing the scanner class
+    
+    sc.close(); 
+  }
+}
