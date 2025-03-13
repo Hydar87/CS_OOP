@@ -1,0 +1,70 @@
+//HAIDAR NYAWA CT 101/G/20354/23
+//This program involves a bank account system demonstrating encapsulation.
+
+import java.util.Scanner;
+
+
+class BankAccount {
+  //  field  storing  and initializing  the balance
+  private double balance;
+
+  public BankAccount(double balance){
+    this.balance = balance;
+  }
+
+  // Getter method  retrieves the balance
+  public double getBalance(){
+    return balance;
+  }
+  
+  // Method to deposit an amount into the account
+  public void setdeposit(double amount){
+    if (amount > balance)
+{
+      System.out.println("You do not have enough balance");
+    }
+    else{
+      balance += amount;
+    }
+  }
+
+  // withdrawing  amount from the account
+  public void setWithdraw(double amount){
+    balance -= amount;
+  }
+}
+
+// Main class 
+public class bankAccount {
+
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+
+    // asking user to enter initial balance
+    
+    System.out.println("Enter  current balance");
+    
+    BankAccount account1 = new BankAccount(scanner.nextDouble()); 
+    
+    System.out.println("" + account1.getBalance());
+
+    // asking user to enter amount to deposit
+    
+    System.out.println("Enter funds to deposit");
+    
+    account1.setdeposit(scanner.nextDouble());
+    
+    System.out.println(" Balance :" + account1.getBalance());
+
+    // asking user to enter amount to withdraw
+    
+    System.out.println("Enter funds to be  withdrawn");
+    
+    account1.setWithdraw(scanner.nextDouble());
+    
+    System.out.println(" Balance :" + account1.getBalance());
+
+    
+    scanner.close();
+  }
+}
